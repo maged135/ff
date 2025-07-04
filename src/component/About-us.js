@@ -9,9 +9,8 @@ function About() {
         <div
             className={`
         ${darkMode ? 'bg-custom-bn text-white' : 'bg-custom-bg text-black'}
-        min-h-screen py-8 px-4 bg-contain bg-fixed relative
-      `}
-        >
+        min-h-screen py-8 px-4 bg-contain bg-fixed relative`}>
+            
             <div className={` ${darkMode ? 'bg-back-bn' : 'bg-back-bg'}  h-full w-full max-w-[900px] mx-auto rounded-[60px] `} >
                 <div className="max-w-3xl mx-auto text-center p-6 ">
                     <h1 className="text-4xl font-bold mb-6 inline-block pb-2">

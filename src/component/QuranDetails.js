@@ -35,10 +35,10 @@ function QuranDetails() {
 
             {/* اسم السورة */}
             <div className={` 
-  ${darkMode ? 'bg-neutral-900' : 'bg-red-900'} 
-  text-white text-center py-4 rounded-lg mb-6 
-  w-full max-w-[900px] mx-auto text-2xl sm:text-3xl font-bold
-`}>
+                           ${darkMode ? 'bg-neutral-900' : 'bg-red-900'} 
+                           text-white text-center py-4 rounded-lg mb-6 
+                           w-full max-w-[900px] mx-auto text-2xl sm:text-3xl font-bold
+                         `}>
                 سورة {filter[0]?.surah || "اسم السورة"}
             </div>
 

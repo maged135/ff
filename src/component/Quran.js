@@ -18,18 +18,20 @@ function Quran() {
         visible: { opacity: 1, x: 0, transition: { duration: 1, ease: 'easeOut' } },
     };
 
+    if(loading) 
+        return (
+          <p className="font-bold my-[150px] text-center">جارٍ التحميل...</p>  
+        );
+
+    if (products.length===0) 
+        return(
+           <p className="font-bold my-[150px] text-center">لا يوجد محتوي </p>   
+        )    
+
     return (
         <motion.div>
             <div
-                className={`
-    ${darkMode ? 'bg-custom-bn text-white' : 'bg-custom-bg text-black'} 
-    min-h-screen py-8 px-4 
-    bg-contain bg-fixed relative
-  `}>
-                    {loading && products?.length === 0 && (
-                    <p className="font-bold my-[150px] text-center">جارٍ التحميل...</p>
-                )}
-                {!loading &&  products.length > 0 && (
+                className={` ${darkMode ? 'bg-custom-bn text-white' : 'bg-custom-bg text-black'}  min-h-screen py-8 px-4  bg-contain bg-fixed relative `}>
                     <div className="container mx-auto">
                         <div className="flex flex-wrap -mx-4">
                             {products.map((product, index) => (
@@ -64,7 +66,6 @@ function Quran() {
                             ))}
                         </div>
                     </div>
-                )}
             </div>
         </motion.div>
     );
