@@ -110,9 +110,9 @@ function SheikhDetails() {
       {/* ✅ شريط التحكم في التشغيل */}
       <div className="fixed bottom-0 left-0 right-0 bg-red-900 dark:bg-neutral-900 px-6 py-4 flex items-center justify-between z-50">
 
-        {/* اسم السورة على اليمين */}
-        <div className="flex items-center gap-3 rtl:justify-end min-w-[120px]">
-          <MdGraphicEq className="text-green-400 text-3xl animate-pulse" />
+        {/* اسم السورة على اليسار */}
+        <div className="flex items-center gap-3 rtl:justify-end min-w-[120px]  ">
+          <MdGraphicEq className="text-green-400 text-3xl  animate-pulse" />
           <span className="text-xl font-bold text-white whitespace-nowrap">
             سورة {filteredAudios[currentIndex]?.name}
           </span>
@@ -133,7 +133,7 @@ function SheikhDetails() {
           </audio>
         </div>
 
-        {/* أزرار التحكم على اليسار */}
+        {/* أزرار التحكم على اليمين */}
         <div className="flex items-center gap-4 rtl:justify-start min-w-[140px]">
           <button
             className="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center text-2xl hover:scale-105 transition"

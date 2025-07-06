@@ -8,6 +8,8 @@ import QuranDetails from './component/QuranDetails';
 import Home from './component/Home';
 import Sheikh from './component/Sheikh';
 import About from './component/About-us';
+import Azkar from './component/Azkar';
+import AzkarDetails from './component/AzkarDetails';
 
 function App() {
   const darkMode = useSelector((state) => state.theme.darkMode);
@@ -35,6 +37,8 @@ bg-contain bg-fixed relative
         <Route path="/sheikh/:id" element={<SheikhDetails />} />
         <Route path="/quran/:number" element={<QuranDetails />} />
         <Route path="Quran" element={<Quran />} />
+        <Route path="azkar" element={<Azkar/>}/>
+        <Route path="/azkar/:id" element={<AzkarDetails />} />
         <Route path="aboutus" element={<About />} />
       </Routes>
     </div>

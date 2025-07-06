@@ -48,8 +48,9 @@ function AppNavbar() {
       <ul className="hidden lg:flex space-x-6 items-center">
         <li><Link to="/" className="text-white no-underline hover:text-gray-300">الصفحه الرئيسيه</Link></li>
         <li><Link to="/Quran" className="text-white no-underline hover:text-gray-300">القران الكريم</Link></li>
-         <li><Link to="/Sheikh" className="text-white no-underline hover:text-gray-300">القراءات</Link></li>
-         <li><Link to="/aboutus" className="text-white no-underline hover:text-gray-300">نبذه عننا</Link></li>
+        <li><Link to="/Sheikh" className="text-white no-underline hover:text-gray-300">القراءات</Link></li>
+        <li><Link to="/azkar" className="text-white no-underline hover:text-gray-300">الاذكار</Link></li>
+        <li><Link to="/aboutus" className="text-white no-underline hover:text-gray-300">نبذه عننا</Link></li>
         <li>
           <AnimatePresence mode="wait">
             <motion.button
@@ -79,6 +80,7 @@ function AppNavbar() {
             <li><Link to="/" onClick={() => setMobileMenuOpen(false)} className="text-white no-underline hover:text-gray-300">الصفحه الرئيسيه</Link></li>
             <li><Link to="/Quran" onClick={() => setMobileMenuOpen(false)} className="text-white no-underline hover:text-gray-300">القران الكريم</Link></li>
             <li><Link to="/Sheikh" onClick={() => setMobileMenuOpen(false)} className="text-white no-underline hover:text-gray-300">القراءات</Link></li>
+            <li><Link to="/azkar" onClick={() => setMobileMenuOpen(false)} className="text-white no-underline hover:text-gray-300">الاذكار</Link></li>
             <li><Link to="/aboutus" onClick={() => setMobileMenuOpen(false)} className="text-white no-underline hover:text-gray-300">نبذه عننا </Link></li>          
           </motion.ul>
         )}
