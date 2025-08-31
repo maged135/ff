@@ -26,20 +26,29 @@ function SheikhDetails() {
     )
   );
 
+  // ✅ فلترة السور بحيث متتكررش (حسب رقم السورة من اللينك)
+  const seenSurahs = new Set();
   const filteredAudios = [];
 
   sheikhProducts.forEach(product => {
     product.audio
       .filter(audio => audio.reciter?.ar?.trim() === reciterName)
       .forEach(audio => {
-        filteredAudios.push({
-          name: product.name?.ar || 'سورة',
-          audioUrl: audio.link,
-        });
+        const match = audio.link.match(/(\d+)\.mp3$/);
+        const surahNumber = match ? match[1] : null;
+        const surahName = product.name?.ar || 'سورة';
+
+        if (surahNumber && !seenSurahs.has(surahNumber)) {
+          seenSurahs.add(surahNumber);
+          filteredAudios.push({
+            number: surahNumber,
+            name: surahName,
+            audioUrl: audio.link,
+          });
+        }
       });
   });
 
-  // لما تختار سورة من القائمة تبدأ تشغيلها في الـ control bar
   const playAudioAtIndex = (index) => {
     setCurrentIndex(index);
     setIsPlaying(true);
@@ -82,7 +91,7 @@ function SheikhDetails() {
       <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-7">
         {filteredAudios.map((item, index) => (
           <motion.div
-            key={index}
+            key={item.number}
             variants={{
               hidden: { opacity: 0, x: -200 },
               visible: { opacity: 1, x: 0, transition: { duration: 1, ease: 'easeOut' } },
@@ -109,16 +118,13 @@ function SheikhDetails() {
 
       {/* ✅ شريط التحكم في التشغيل */}
       <div className="fixed bottom-0 left-0 right-0 bg-red-900 dark:bg-neutral-900 px-6 py-4 flex items-center justify-between z-50">
-
-        {/* اسم السورة على اليسار */}
-        <div className="flex items-center gap-3 rtl:justify-end min-w-[120px]  ">
-          <MdGraphicEq className="text-green-400 text-3xl  animate-pulse" />
+        <div className="flex items-center gap-3 rtl:justify-end min-w-[120px]">
+          <MdGraphicEq className="text-green-400 text-3xl animate-pulse" />
           <span className="text-xl font-bold text-white whitespace-nowrap">
             سورة {filteredAudios[currentIndex]?.name}
           </span>
         </div>
 
-        {/* شريط الصوت في المنتصف، يتوسع حسب المساحة */}
         <div className="flex-grow mx-6">
           <audio
             ref={audioRef}
@@ -133,7 +139,6 @@ function SheikhDetails() {
           </audio>
         </div>
 
-        {/* أزرار التحكم على اليمين */}
         <div className="flex items-center gap-4 rtl:justify-start min-w-[140px]">
           <button
             className="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center text-2xl hover:scale-105 transition"
@@ -176,13 +181,13 @@ function SheikhDetails() {
             <MdSkipNext />
           </button>
         </div>
-
       </div>
-
     </div>
   );
 }
 
 export default SheikhDetails;
+
+
 
 

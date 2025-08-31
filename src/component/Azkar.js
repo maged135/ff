@@ -1,17 +1,22 @@
 import { useEffect } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link ,useLocation } from 'react-router-dom';
 import { aiazkar } from "../store/Azkar-slice";
 
 function Azkar() {
     const dispatch = useDispatch();
     const { azkary, loading, error } = useSelector((state) => state.azkary); // ✅ هنا التصحيح
     const darkMode = useSelector((state) => state.theme.darkMode);
-
+    const { pathname } = useLocation();
     useEffect(() => {
         dispatch(aiazkar());
     }, [dispatch]);
+
+      useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
     const divV = {
         hidden: { opacity: 0, x: -200 },

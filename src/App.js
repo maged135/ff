@@ -24,20 +24,16 @@ function App() {
 
   return (
     <div
-    className={`
-${darkMode ? 'bg-custom-bn text-white' : 'bg-custom-bg text-black'} 
-min-h-screen
-bg-contain bg-fixed relative
-`}
->
+      className={`${darkMode ? 'bg-custom-bn text-white' : 'bg-custom-bg text-black'} min-h-screen bg-contain bg-fixed relative`}
+    >
       <AppNavbar />
       <Routes>
-      <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="Sheikh" element={<Sheikh />} />
         <Route path="/sheikh/:id" element={<SheikhDetails />} />
         <Route path="/quran/:number" element={<QuranDetails />} />
         <Route path="Quran" element={<Quran />} />
-        <Route path="azkar" element={<Azkar/>}/>
+        <Route path="azkar" element={<Azkar />} />
         <Route path="/azkar/:id" element={<AzkarDetails />} />
         <Route path="aboutus" element={<About />} />
       </Routes>

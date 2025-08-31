@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams,useLocation } from "react-router-dom";
 import { fetchProducts } from "../store/Products-slice";
 
 function QuranDetails() {
@@ -8,10 +8,15 @@ function QuranDetails() {
     const dispatch = useDispatch();
     const { products, loading, error } = useSelector((state) => state.products);
     const darkMode = useSelector((state) => state.theme.darkMode);
-
+    const { pathname } = useLocation();
     useEffect(() => {
         dispatch(fetchProducts());
     }, [dispatch]);
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
 
     const surahNumber = Number(number);
     const quranPro = products?.filter(product => product.number === surahNumber);
