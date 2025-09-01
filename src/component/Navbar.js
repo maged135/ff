@@ -17,7 +17,7 @@ function AppNavbar() {
   };
 
   return (
-    <nav className={`transition-colors duration-600 ${darkMode ? 'bg-neutral-900' : 'bg-red-900'} px-6 py-4 flex items-center justify-between relative h-16 `}>
+    <nav className={`fixed top-0 left-0 right-0 transition-colors duration-600 z-30 ${darkMode ? 'bg-neutral-900' : 'bg-red-900'} px-6 py-4 flex items-center justify-between h-16`}>
       {/* Logo */}
       <div className="text-3xl font-bold text-white">قرآن</div>
 

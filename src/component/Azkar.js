@@ -25,7 +25,7 @@ function Azkar() {
 
     console.log(azkary)
 
-    if (loading) return <p className="font-bold my-[150px] text-center">جارٍ التحميل...</p>
+    if (loading) return <p className="  font-bold my-[150px] text-center">جارٍ التحميل...</p>
     if (azkary.length===0) return <p className="font-bold my-[150px] text-center">لا يوجد محتوي</p>
     if (error) return <p  className="font-bold my-[150px] text-center">حدث خطأ: {error}</p>;
 

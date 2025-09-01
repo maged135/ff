@@ -35,7 +35,7 @@ function Quran() {
     return (
         <motion.div>
             <div
-                className={` ${darkMode ? 'bg-custom-bn text-white' : 'bg-custom-bg text-black'}  min-h-screen py-8 px-4  bg-contain bg-fixed relative `}>
+                className={`  ${darkMode ? 'bg-custom-bn text-white' : 'bg-custom-bg text-black'}  min-h-screen py-8 px-4  bg-contain bg-fixed relative `}>
                 <div className="container mx-auto">
                     <div className="flex flex-wrap -mx-4">
                         {products.map((product, index) => (

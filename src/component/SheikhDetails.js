@@ -86,7 +86,7 @@ function SheikhDetails() {
     return <p className="text-center mt-10 text-gray-700 dark:text-gray-300 text-lg font-semibold">لا توجد سور لهذا القارئ</p>;
 
   return (
-    <div className="container mx-auto p-6 pb-28">
+    <div className="  container mx-auto p-6 pb-28">
       <h1 className="text-3xl font-extrabold mb-8 flex justify-end pt-3 text-gray-900 dark:text-white">
         الشيخ {reciterName}
       </h1>

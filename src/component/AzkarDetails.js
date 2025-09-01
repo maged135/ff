@@ -18,7 +18,7 @@ function AzkarDetails() {
     return (
         <div
             dir="rtl"
-            className={`min-h-screen py-8 px-4 bg-contain bg-fixed relative ${darkMode ? "bg-custom-bn text-white" : "bg-custom-bg text-black"
+            className={`  min-h-screen py-8 px-4 bg-contain bg-fixed relative ${darkMode ? "bg-custom-bn text-white" : "bg-custom-bg text-black"
                 }`}
         >
             <h1 className="text-3xl font-bold mb-6 text-right">{item.category}</h1>

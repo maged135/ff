@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function About() {
     const darkMode = useSelector((state) => state.theme.darkMode);
@@ -13,7 +13,7 @@ function About() {
 
     return (
         <div
-            className={`
+            className={` 
         ${darkMode ? 'bg-custom-bn text-white' : 'bg-custom-bg text-black'}
         min-h-screen py-8 px-4 bg-contain bg-fixed relative`}>
 

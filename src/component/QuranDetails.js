@@ -36,7 +36,7 @@ function QuranDetails() {
     if (error) return <p className="text-red-600 text-center mt-10">حدث خطأ: {error}</p>;
 
     return (
-        <div dir="rtl" className="container mx-auto pt-8">
+        <div  dir="rtl" className="  container mx-auto pt-8">
 
             {/* اسم السورة */}
             <div className={` 

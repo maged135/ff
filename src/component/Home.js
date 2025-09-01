@@ -45,7 +45,7 @@ function Home() {
 
   return (
     <div
-      className={`
+      className={` 
         ${darkMode ? 'bg-custom-bn text-white' : 'bg-custom-bg text-black'}
         min-h-screen py-8 px-4 md:px-8 lg:px-16 bg-contain bg-fixed relative
       `}
