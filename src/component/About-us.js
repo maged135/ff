@@ -1,7 +1,15 @@
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useLocation} from "react-router-dom";
 
 function About() {
     const darkMode = useSelector((state) => state.theme.darkMode);
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
 
     return (
         <div

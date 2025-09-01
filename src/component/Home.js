@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function Home() {
   const navigate = useNavigate();
   const darkMode = useSelector((state) => state.theme.darkMode);
   const { products } = useSelector((state) => state.products);
   const [searchValue, setSearchValue] = useState('');
+  const { pathname } = useLocation();
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
 
   const handleSearch = (e) => {
     if (e.key === 'Enter' && searchValue.trim()) {

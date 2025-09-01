@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { fetchProducts } from '../store/Products-slice';
 import { motion } from 'framer-motion';
 import { MdSkipPrevious, MdSkipNext, MdPlayArrow, MdPause, MdGraphicEq } from 'react-icons/md';
@@ -9,7 +9,7 @@ function SheikhDetails() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector(state => state.products);
-
+  const { pathname } = useLocation();
   const audioRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -18,6 +18,9 @@ function SheikhDetails() {
     dispatch(fetchProducts());
   }, [dispatch]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   const reciterName = decodeURIComponent(id).trim();
 
   const sheikhProducts = products?.filter(product =>

@@ -1,11 +1,17 @@
-import { useParams } from "react-router-dom";
+import { useParams ,useLocation} from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 function AzkarDetails() {
     const { id } = useParams();
     const { azkary } = useSelector((state) => state.azkary);
     const item = azkary.find((azkar) => azkar.id === parseInt(id));
     const darkMode = useSelector((state) => state.theme.darkMode);
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
 
     if (!item) return <div className="p-4">الأذكار غير موجودة</div>;
 
@@ -22,8 +28,8 @@ function AzkarDetails() {
                     <div
                         key={zekr.id}
                         className={`rounded-xl p-6 flex flex-col justify-between h-full text-center transition-all duration-300 shadow-lg ${darkMode
-                                ? 'bg-gradient-to-br from-neutral-800 to-neutral-900 text-white shadow-black/40 hover:shadow-black/60 hover:scale-105'
-                                : 'bg-slate-100 text-black hover:scale-105'
+                            ? 'bg-gradient-to-br from-neutral-800 to-neutral-900 text-white shadow-black/40 hover:shadow-black/60 hover:scale-105'
+                            : 'bg-slate-100 text-black hover:scale-105'
                             }`}
                     >
                         <p className="text-lg leading-relaxed mb-4">{zekr.text}</p>
